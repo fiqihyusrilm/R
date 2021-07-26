@@ -1,0 +1,6 @@
+"0","## Carilah simpangan baku untuk kolom Pendapatan dari variable data_intro"
+"0","sd(data_intro$Pendapatan)"
+"1","[1]"
+"1"," 1282842"
+"1","
+"

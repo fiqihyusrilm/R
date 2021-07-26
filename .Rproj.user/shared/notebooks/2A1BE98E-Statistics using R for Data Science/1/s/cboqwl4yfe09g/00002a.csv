@@ -1,0 +1,4 @@
+"0",""
+"0","## Carilah sebaran data dari Tingkat.Kepuasan dari variable data_intro"
+"0","plot(data_intro$Tingkat.Kepuasan)"
+"0",""

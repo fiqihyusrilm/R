@@ -1,0 +1,2 @@
+"0","## Carilah sebaran data kolom Jenis.Kelamin dari variable data_intro"
+"0","plot(data_intro$Jenis.Kelamin)"

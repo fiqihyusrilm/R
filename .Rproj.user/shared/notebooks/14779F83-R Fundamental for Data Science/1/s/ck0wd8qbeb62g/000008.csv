@@ -1,0 +1,6 @@
+"0",""
+"0","#Buat vector baru sebagai representasi akreditasi"
+"0","akreditasi <- c(""A"",""A"",""B"",""A"",""A"")"
+"0","#Buat data frame dari ketiga vector di atas"
+"0","info_mahasiswa <- data.frame(fakultas, jumlah_mahasiswa, akreditasi)"
+"0","info_mahasiswa"

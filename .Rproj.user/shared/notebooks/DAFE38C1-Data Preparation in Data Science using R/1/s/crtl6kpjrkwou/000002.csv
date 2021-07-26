@@ -1,0 +1,8 @@
+"0","#Buatlah variable factor.lokasi dengan isi berupa vector c(""Bandung"", ""Jakarta"", NA, ""Jakarta"", NaN, ""Medan"", NULL, NULL, ""Bandung"") "
+"0","factor.lokasi <- factor(c(""Bandung"", ""Jakarta"", NA, ""Jakarta"", NaN, ""Medan"", NULL, NULL, ""Bandung""))"
+"0","#Tampilkan panjang dari variable factor.lokasi"
+"0","length(factor.lokasi)"
+"1","[1]"
+"1"," 7"
+"1","
+"

@@ -1,0 +1,6 @@
+"0","## carilah range untuk kolom Pendapatan pada variable data_intro"
+"0","max(data_intro$Pendapatan)-min(data_intro$Pendapatan)"
+"1","[1]"
+"1"," 6050000"
+"1","
+"

@@ -1,0 +1,3 @@
+"0",""
+"0","summarybyfakultas$tahun = as.factor(summarybyfakultas$tahun)"
+"0","summarybyfakultas[summarybyfakultas$fakultas %in% c(""ICT"", ""Ilmu Komunikasi""),]"

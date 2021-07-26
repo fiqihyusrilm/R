@@ -1,0 +1,234 @@
+---
+title: "Advanced Data Visualization with ggplot2 using R"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+Konsep Grammar of Graphic
+```{r}
+library(ggplot2)
+```
+  
+Mengingat Kembali
+```{r}
+library(ggplot2)
+qplot(x = carat, y = price, colour = clarity, data = diamonds)
+```
+
+Pembuatan Grafik dengan ggplot
+```{r}
+library(ggplot2)
+ggplot(data = diamonds,
+       mapping = aes(x = carat, y = price, colour = clarity)) +
+  geom_point()
+```
+
+Kode 3 Rupa
+```{r}
+library(ggplot2)
+# Cara 1
+diamonds_c1 <- 
+  ggplot(data = diamonds,
+         mapping = aes(x = carat, y = price, colour = clarity)) +
+  geom_point()
+
+summary(diamonds_c1)
+
+# Cara 2
+diamonds_c2 <- 
+  ggplot(data = diamonds) +
+	geom_point(mapping = aes(x = carat, y = price, colour = clarity))
+
+summary(diamonds_c2)
+
+# Cara 3
+diamonds_c3 <- 
+  ggplot() +
+  geom_point(
+	data = diamonds,
+	mapping = aes(x = carat, y = price, colour = clarity)
+	)
+
+summary(diamonds_c3)
+```
+
+Komponen grafik :
+Data
+Mapping
+Statistic
+Scales
+Geometries
+Facets
+Coordinates
+Theme
+
+Yin dan Yang
+```{r}
+library(dplyr)	
+```
+
+Paket dplyr
+Terdapat beberapa fungsi utama dari paket dplyr untuk melakukan transformasi data, diantaranya:
+
+select()
+filter()
+arrange()
+mutate()
+summarise()
+group_by()
+
+```{r}
+TRUE
+```
+
+Transformasi Data
+```{r}
+library(dplyr)
+glimpse(storms)
+
+# Tanpa menggunakan %>% 
+
+storms1 <- select(storms, year, month, wind, pressure)
+storms2 <- filter(storms1, between(year, 2000, 2015))
+storms3 <- mutate(storms2, month = factor(month.name[storms2$month], levels = month.name))
+storms4 <- group_by(storms3, month)
+storms_nopipe <- summarise(storms4, avg_wind = mean(wind), avg_pressure = mean(pressure))
+glimpse(storms_nopipe)
+
+# Menggunakan %>% 
+
+storms_pipe <-
+  storms %>%
+  select(year, month, wind, pressure) %>%
+  filter(between(year, 2000, 2015)) %>%
+  mutate(month = factor(month.name[month], levels = month.name)) %>%
+  group_by(month) %>%
+  summarise(
+    avg_wind = mean(wind),
+    avg_pressure = mean(pressure)
+  )
+glimpse(storms_pipe) 
+
+# Komparasi metode tanpa pipe dan dengan pipe
+identical(storms_nopipe, storms_pipe) 
+```
+
+Operator Pipe
+```{r}
+storms %>%
+  select(year, month, wind, pressure) %>%
+  filter(between(year, 2000, 2015)) %>%
+  mutate(month = factor(month.name[month], levels = month.name)) %>%
+  group_by(month) %>%
+  summarise(
+    avg_wind = mean(wind),
+    avg_pressure = mean(pressure)
+  )
+```
+
+Import Dataset
+```{r}
+library(readr)
+
+indodapoer <- read_tsv("https://storage.googleapis.com/dqlab-dataset/indodapoer.tsv.gz")
+nrow(indodapoer)
+ncol(indodapoer)
+```
+
+Wild Names and How to Tame Them
+```{r}
+#install.packages("janitor", repos = "http://cran.us.r-project.org")
+library(janitor)
+
+head(colnames(indodapoer), 15)
+indodapoer <- clean_names(indodapoer)
+head(colnames(indodapoer), 15)
+```
+
+Produk Domestik Regional Bruto
+```{r}
+library(stringr)
+library(dplyr)
+pdrb_pjawa <-
+  indodapoer %>%
+  filter(
+    area_name %in% c(
+      "Banten, Prop.",
+      "DKI Jakarta, Prop.",
+      "Jawa Barat, Prop.",
+      "Jawa Tengah, Prop.",
+      "DI Yogyakarta, Prop.",
+      "Jawa Timur, Prop."
+    )
+  ) %>%
+  transmute(
+    provinsi = str_remove(area_name, ", Prop."),
+    tahun = year,
+    pdrb_nonmigas = total_gdp_excluding_oil_and_gas_in_idr_million_constant_price
+  ) %>%
+  filter(!is.na(pdrb_nonmigas))
+glimpse(pdrb_pjawa)
+```
+
+Grafik PDRB Non-Migas
+```{r}
+library(dplyr)
+library(ggplot2)
+library(forcats)
+
+pdrb_pjawa %>%
+  mutate(
+    provinsi = fct_reorder2(provinsi, tahun, pdrb_nonmigas)
+  ) %>%
+  ggplot(aes(tahun, pdrb_nonmigas, colour = provinsi)) +
+  geom_line()
+
+```
+
+Direct Labeling
+```{r}
+library(ggplot2)
+library(dplyr)
+library(directlabels)
+
+pdrb_pjawa %>% 
+  ggplot(aes(tahun, pdrb_nonmigas)) +
+  geom_line(aes(colour = provinsi), show.legend = FALSE) +
+  geom_dl(
+    aes(label = provinsi), 
+    method = "last.points",
+    position = position_nudge(x = 0.3) # agar teks tidak berhimpitan dengan garis
+  )
+```
+
+Finalisasi Grafik
+```{r}
+library(ggplot2)
+library(dplyr)
+library(directlabels)
+library(hrbrthemes)
+
+pdrb_pjawa %>% 
+  ggplot(aes(tahun, pdrb_nonmigas / 1e6)) +
+  geom_line(aes(colour = provinsi), show.legend = FALSE) +
+  geom_dl(
+    aes(label = provinsi), 
+    method = "last.points",
+    position = position_nudge(x = 0.3) # agar teks tidak berhimpitan dengan garis
+  ) +
+  labs(
+    x = NULL,
+    y = NULL,
+    title = "PDRB Non-Migas di Pulau Jawa Hingga Tahun 2011",
+    subtitle = "PDRB atas dasar harga konstan, dalam satuan triliun",
+    caption =  "Data: INDO-DAPOER, The World Bank"
+  ) +
+  coord_cartesian(clip = "off") +
+  theme_ipsum(grid = "Y", ticks = TRUE)
+
+```
+

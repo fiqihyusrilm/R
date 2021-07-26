@@ -1,0 +1,3 @@
+"0","#Membaca data csv dan dimasukkan ke variable inflasi.indo.sing"
+"0","inflasi.indo.sing <- read.csv(""https://storage.googleapis.com/dqlab-dataset/inflasi.csv"", sep="","")"
+"0","inflasi.indo.sing"

@@ -1,0 +1,3 @@
+"0",""
+"0","## Carilah sebaran data dari Produk dari variable data_intro"
+"0","plot(data_intro$Produk)"

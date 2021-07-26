@@ -1,0 +1,5 @@
+"0","library(ggplot2)"
+"0","#Membaca data csv dan dimasukkan ke variable penduduk.dki"
+"0","penduduk.dki <- read.csv(""https://storage.googleapis.com/dqlab-dataset/dkikepadatankelurahan2013.csv"", sep="","")"
+"0","plot.dki <- ggplot(data=penduduk.dki, aes(x = LUAS.WILAYAH..KM2.,  y=KEPADATAN..JIWA.KM2.,  color=NAMA.KABUPATEN.KOTA))"
+"0","plot.dki"

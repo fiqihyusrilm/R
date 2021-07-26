@@ -1,0 +1,20 @@
+"0","library(dplyr)"
+"2","
+Attaching package: ‘dplyr’
+
+"
+"2","The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+"
+"2","The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+"
+"0","library(ggplot2)"
+"0","tabel <- read.csv(""https://storage.googleapis.com/dqlab-dataset/lo5_m01_mp01.csv"") %>%"
+"0","  mutate(Laki.laki = -Laki.laki) %>%"
+"0","  arrange(desc(Kelompok.Usia))"
+"0","tabel"

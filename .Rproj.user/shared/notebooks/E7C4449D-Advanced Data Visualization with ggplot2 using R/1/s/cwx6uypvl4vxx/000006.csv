@@ -1,0 +1,11 @@
+"0","storms %>%"
+"0","  select(year, month, wind, pressure) %>%"
+"0","  filter(between(year, 2000, 2015)) %>%"
+"0","  mutate(month = factor(month.name[month], levels = month.name)) %>%"
+"0","  group_by(month) %>%"
+"0","  summarise("
+"0","    avg_wind = mean(wind),"
+"0","    avg_pressure = mean(pressure)"
+"0","  )"
+"2","`summarise()` ungrouping output (override with `.groups` argument)
+"

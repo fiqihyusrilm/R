@@ -1,0 +1,2 @@
+"0","## carilah boxplot antara variabel jenis kelamin dengan total belanja"
+"0","boxplot(Total~Jenis.Kelamin,data = data_intro)"

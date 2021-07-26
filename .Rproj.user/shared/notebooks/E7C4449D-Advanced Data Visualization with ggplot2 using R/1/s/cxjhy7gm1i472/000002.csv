@@ -1,0 +1,85 @@
+"0","library(dplyr)"
+"0","glimpse(storms)"
+"1","Rows: 10,010"
+"1",""
+"1","
+"
+"1","Columns: 13"
+"1",""
+"1","
+"
+"1","$ name        [3m[38;5;246m<chr>[39m[23m ""Amy"", ""Amy"", ""Amy"", ""Amy"", ""Amy"", ""Amy"", ""Amy"", ""Amy"", ""A...
+$ year        [3m[38;5;246m<dbl>[39m[23m 1975, 1975, 1975, 1975, 1975, 1975, 1975, 1975, 1975, 1975...
+$ month       [3m[38;5;246m<dbl>[39m[23m 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 7, 7, 7, 7...
+$ day         [3m[38;5;246m<int>[39m[23m 27, 27, 27, 27, 28, 28, 28, 28, 29, 29, 29, 29, 30, 30, 30...
+$ hour        [3m[38;5;246m<dbl>[39m[23m 0, 6, 12, 18, 0, 6, 12, 18, 0, 6, 12, 18, 0, 6, 12, 18, 0,...
+$ lat         [3m[38;5;246m<dbl>[39m[23m 27.5, 28.5, 29.5, 30.5, 31.5, 32.4, 33.3, 34.0, 34.4, 34.0...
+$ long        [3m[38;5;246m<dbl>[39m[23m -79.0, -79.0, -79.0, -79.0, -78.8, -78.7, -78.0, -77.0, -7...
+$ status      [3m[38;5;246m<chr>[39m[23m ""tropical depression"", ""tropical depression"", ""tropical de...
+$ category    [3m[38;5;246m<ord>[39m[23m -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0,...
+$ wind        [3m[38;5;246m<int>[39m[23m 25, 25, 25, 25, 25, 25, 25, 30, 35, 40, 45, 50, 50, 55, 60...
+$ pressure    [3m[38;5;246m<int>[39m[23m 1013, 1013, 1013, 1013, 1012, 1012, 1011, 1006, 1004, 1002...
+$ ts_diameter [3m[38;5;246m<dbl>[39m[23m NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+$ hu_diameter [3m[38;5;246m<dbl>[39m[23m NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA..."
+"1",""
+"1","
+"
+"0","# Tanpa menggunakan %>% "
+"0",""
+"0","storms1 <- select(storms, year, month, wind, pressure)"
+"0","storms2 <- filter(storms1, between(year, 2000, 2015))"
+"0","storms3 <- mutate(storms2, month = factor(month.name[storms2$month], levels = month.name))"
+"0","storms4 <- group_by(storms3, month)"
+"0","storms_nopipe <- summarise(storms4, avg_wind = mean(wind), avg_pressure = mean(pressure))"
+"2","`summarise()` ungrouping output (override with `.groups` argument)
+"
+"0","glimpse(storms_nopipe)"
+"1","Rows: 10"
+"1",""
+"1","
+"
+"1","Columns: 3"
+"1",""
+"1","
+"
+"1","$ month        [3m[38;5;246m<fct>[39m[23m January, April, May, June, July, August, September, Octob...
+$ avg_wind     [3m[38;5;246m<dbl>[39m[23m 45.65217, 44.61538, 36.76471, 39.03030, 48.21981, 51.9697...
+$ avg_pressure [3m[38;5;246m<dbl>[39m[23m 999.4348, 996.9231, 1003.4510, 999.5333, 999.1300, 994.09..."
+"1",""
+"1","
+"
+"0","# Menggunakan %>% "
+"0",""
+"0","storms_pipe <-"
+"0","  storms %>%"
+"0","  select(year, month, wind, pressure) %>%"
+"0","  filter(between(year, 2000, 2015)) %>%"
+"0","  mutate(month = factor(month.name[month], levels = month.name)) %>%"
+"0","  group_by(month) %>%"
+"0","  summarise("
+"0","    avg_wind = mean(wind),"
+"0","    avg_pressure = mean(pressure)"
+"0","  )"
+"2","`summarise()` ungrouping output (override with `.groups` argument)
+"
+"0","glimpse(storms_pipe) "
+"1","Rows: 10"
+"1",""
+"1","
+"
+"1","Columns: 3"
+"1",""
+"1","
+"
+"1","$ month        [3m[38;5;246m<fct>[39m[23m January, April, May, June, July, August, September, Octob...
+$ avg_wind     [3m[38;5;246m<dbl>[39m[23m 45.65217, 44.61538, 36.76471, 39.03030, 48.21981, 51.9697...
+$ avg_pressure [3m[38;5;246m<dbl>[39m[23m 999.4348, 996.9231, 1003.4510, 999.5333, 999.1300, 994.09..."
+"1",""
+"1","
+"
+"0","# Komparasi metode tanpa pipe dan dengan pipe"
+"0","identical(storms_nopipe, storms_pipe) "
+"1","[1]"
+"1"," TRUE"
+"1","
+"

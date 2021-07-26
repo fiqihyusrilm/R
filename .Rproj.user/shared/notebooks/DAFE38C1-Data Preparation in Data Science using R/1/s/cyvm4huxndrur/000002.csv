@@ -1,0 +1,5 @@
+"0","library(openxlsx)"
+"0","penduduk.dki.xlsx <- read.xlsx(xlsxFile=""https://storage.googleapis.com/dqlab-dataset/dkikepadatankelurahan2013.xlsx"")"
+"0","#Tampilkan nama-nama kolom yang mengandung kata ""perempuan""."
+"0","pola_nama_perempuan <- grep(pattern=""perempuan"", x = names(penduduk.dki.xlsx), ignore.case=TRUE)"
+"0","penduduk.dki.xlsx$PEREMPUAN35TAHUNKEATAS  <- rowSums(penduduk.dki.xlsx[pola_nama_perempuan])"

@@ -1,0 +1,31 @@
+---
+title: "Introduction to Data Science with R"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+"Hello World"
+```
+```{r}
+10 + 7
+```
+```{r}
+10 + 7 # Ini adalah baris komentar
+```
+```{r}
+c(3, 10, 15)
+```
+```{r}
+c(1:5)
+```
+```{r}
+summary(c(1:5))
+```
+
+
+

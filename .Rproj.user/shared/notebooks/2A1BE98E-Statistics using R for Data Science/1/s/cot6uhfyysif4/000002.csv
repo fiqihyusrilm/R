@@ -1,0 +1,6 @@
+"0","## Carilah varians untuk kolom Pendapatan dari variable data_intro"
+"0","var(data_intro$Pendapatan)"
+"1","[1]"
+"1"," 1.645684e+12"
+"1","
+"

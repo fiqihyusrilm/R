@@ -1,0 +1,7 @@
+"0",""
+"0","summarybyfakultas$tahun = as.factor(summarybyfakultas$tahun)"
+"0",""
+"0","ggplot(summarybyfakultas, aes(x=fakultas, y=jumlah_mahasiswa)) + "
+"0","  geom_bar(stat = ""identity"", aes(fill = tahun), width=0.8, position = position_dodge(width=0.8)) + "
+"0","  theme_classic() "
+"0",""

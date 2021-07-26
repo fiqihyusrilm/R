@@ -1,0 +1,37 @@
+"0","library(ggplot2)"
+"0","library(dplyr)"
+"0","library(directlabels)"
+"0","library(hrbrthemes)"
+"2","package ‘hrbrthemes’ was built under R version 4.0.5"
+"2","Registered S3 methods overwritten by 'htmltools':
+  method               from         
+  print.html           tools:rstudio
+  print.shiny.tag      tools:rstudio
+  print.shiny.tag.list tools:rstudio
+"
+"2","Registering Windows fonts with R
+"
+"2","NOTE: Either Arial Narrow or Roboto Condensed fonts are required to use these themes.
+"
+"2","      Please use hrbrthemes::import_roboto_condensed() to install Roboto Condensed and
+"
+"2","      if Arial Narrow is not on your system, please see https://bit.ly/arialnarrow
+"
+"0","pdrb_pjawa %>% "
+"0","  ggplot(aes(tahun, pdrb_nonmigas / 1e6)) +"
+"0","  geom_line(aes(colour = provinsi), show.legend = FALSE) +"
+"0","  geom_dl("
+"0","    aes(label = provinsi), "
+"0","    method = ""last.points"","
+"0","    position = position_nudge(x = 0.3) # agar teks tidak berhimpitan dengan garis"
+"0","  ) +"
+"0","  labs("
+"0","    x = NULL,"
+"0","    y = NULL,"
+"0","    title = ""PDRB Non-Migas di Pulau Jawa Hingga Tahun 2011"","
+"0","    subtitle = ""PDRB atas dasar harga konstan, dalam satuan triliun"","
+"0","    caption =  ""Data: INDO-DAPOER, The World Bank"""
+"0","  ) +"
+"0","  coord_cartesian(clip = ""off"") +"
+"0","  theme_ipsum(grid = ""Y"", ticks = TRUE)"
+"0",""

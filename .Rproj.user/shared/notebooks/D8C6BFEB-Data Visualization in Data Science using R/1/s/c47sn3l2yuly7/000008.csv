@@ -1,0 +1,5 @@
+"0","library(ggplot2)"
+"0","#Membaca data csv dan dimasukkan ke variable penduduk.dki"
+"0","penduduk.dki <- read.csv(""https://storage.googleapis.com/dqlab-dataset/dkikepadatankelurahan2013.csv"", sep="","")"
+"0","# Tampilkan data frame dari kolom "" NAMA.KELURAHAN "" dan ""LUAS.WILAYAH..KM2."""
+"0","penduduk.dki[c(""NAMA.KELURAHAN"", ""LUAS.WILAYAH..KM2."")]"

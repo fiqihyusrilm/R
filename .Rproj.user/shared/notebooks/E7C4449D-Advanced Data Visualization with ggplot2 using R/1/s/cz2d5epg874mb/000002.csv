@@ -1,0 +1,38 @@
+"0","library(readr)"
+"0",""
+"0","indodapoer <- read_tsv(""https://storage.googleapis.com/dqlab-dataset/indodapoer.tsv.gz"")"
+"2","
+[36m--[39m [1m[1mColumn specification[1m[22m [36m-----------------------------------------------------------[39m
+cols(
+  .default = col_double(),
+  area_name = [31mcol_character()[39m,
+  `Import: Commodities and transaction not elsewhere classified (province Level, in USD)` = [33mcol_logical()[39m,
+  `Length of National Road: Dirt (in km) (BPS Data, Province only)` = [33mcol_logical()[39m,
+  `Length of National Road: Other (in km) (BPS Data, Province only)` = [33mcol_logical()[39m,
+  `Total Natural Resources Revenue Sharing from Geothermal  Energy (in IDR, realization value)` = [33mcol_logical()[39m,
+  `Total Revenue Sharing` = [33mcol_logical()[39m,
+  `Total Specific Allocation Grant for Village (in IDR Billion)` = [33mcol_logical()[39m
+)
+[36mi[39m Use [38;5;251m[48;5;235m[38;5;251m[48;5;235m`spec()`[48;5;235m[38;5;251m[49m[39m for the full column specifications.
+
+"
+"2","232 parsing failures.
+ row                                                                                   col           expected  actual                                                             file
+1008 Import: Commodities and transaction not elsewhere classified (province Level, in USD) 1/0/T/F/TRUE/FALSE 554693  'https://storage.googleapis.com/dqlab-dataset/indodapoer.tsv.gz'
+1009 Import: Commodities and transaction not elsewhere classified (province Level, in USD) 1/0/T/F/TRUE/FALSE 1291450 'https://storage.googleapis.com/dqlab-dataset/indodapoer.tsv.gz'
+1010 Import: Commodities and transaction not elsewhere classified (province Level, in USD) 1/0/T/F/TRUE/FALSE 365356  'https://storage.googleapis.com/dqlab-dataset/indodapoer.tsv.gz'
+1011 Import: Commodities and transaction not elsewhere classified (province Level, in USD) 1/0/T/F/TRUE/FALSE 216478  'https://storage.googleapis.com/dqlab-dataset/indodapoer.tsv.gz'
+1012 Import: Commodities and transaction not elsewhere classified (province Level, in USD) 1/0/T/F/TRUE/FALSE 646310  'https://storage.googleapis.com/dqlab-dataset/indodapoer.tsv.gz'
+.... ..................................................................................... .................. ....... ................................................................
+See problems(...) for more details.
+"
+"0","nrow(indodapoer)"
+"1","[1]"
+"1"," 22468"
+"1","
+"
+"0","ncol(indodapoer)"
+"1","[1]"
+"1"," 222"
+"1","
+"

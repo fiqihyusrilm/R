@@ -1,0 +1,7 @@
+"0",""
+"0","#Menggunakan package ggplot2"
+"0","library(""ggplot2"")"
+"0","#Membuat kanvas"
+"0","gambar <- ggplot(info_mahasiswa, aes(x=fakultas, y=jumlah_mahasiswa, fill=fakultas))"
+"0","gambar <- gambar + geom_bar(width=1, stat=""identity"")"
+"0","gambar"

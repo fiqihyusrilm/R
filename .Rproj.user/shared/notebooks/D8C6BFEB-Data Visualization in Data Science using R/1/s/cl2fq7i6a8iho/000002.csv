@@ -1,0 +1,27 @@
+"0","library(ggplot2)"
+"0","plot.jakarta <- ggplot()"
+"0","plot.jakarta <- plot.jakarta + labs(title=""Luas Wilayah vs Kepadatan Penduduk DKI Jakarta"")"
+"0","plot.jakarta <- plot.jakarta + labs(x = ""Luas Wilayah (km2)"", y=""Kepadatan Jiwa per km2"")"
+"0","summary(plot.jakarta)"
+"1","data: [x]
+"
+"1","faceting: "
+"1","<ggproto object: Class FacetNull, Facet, gg>
+    compute_layout: function
+    draw_back: function
+    draw_front: function
+    draw_labels: function
+    draw_panels: function
+    finish_data: function
+    init_scales: function
+    map_data: function
+    params: list
+    setup_data: function
+    setup_params: function
+    shrink: TRUE
+    train_scales: function
+    vars: function
+    super:  <ggproto object: Class FacetNull, Facet, gg>"
+"1",""
+"1","
+"

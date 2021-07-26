@@ -1,0 +1,6 @@
+"0","library(ggplot2)"
+"0",""
+"0","#Membaca data csv dan dimasukkan ke variable penduduk.dki"
+"0","penduduk.dki <- read.csv(""https://storage.googleapis.com/dqlab-dataset/datakependudukandki-dqlab.csv"", sep="","")"
+"0","#Melakukan agregasi"
+"0","aggregate(x=list(JUMLAH=penduduk.dki$JUMLAH), FUN=sum, by = list(NAMA.KABUPATEN.KOTA=penduduk.dki$NAMA.KABUPATEN.KOTA, JENIS.KELAMIN=penduduk.dki$JENIS.KELAMIN))"

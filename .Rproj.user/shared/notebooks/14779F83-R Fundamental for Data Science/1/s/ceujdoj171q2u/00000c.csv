@@ -1,0 +1,5 @@
+"0",""
+"0","ggplot(summarybyfakultas[summarybyfakultas$fakultas %in% c(""ICT"", ""Ilmu Komunikasi""),], aes(x=fakultas, y=jumlah_mahasiswa)) + "
+"0","  geom_bar(stat = ""identity"", aes(fill = tahun), width=0.8, position = position_dodge(width=0.8)) + "
+"0","  theme_classic() "
+"0",""

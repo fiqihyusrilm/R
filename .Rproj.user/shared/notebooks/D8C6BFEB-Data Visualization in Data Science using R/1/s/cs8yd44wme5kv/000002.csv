@@ -1,0 +1,35 @@
+"0","library(ggplot2)"
+"0","#Membaca data csv dan dimasukkan ke variable penduduk.dki"
+"0","penduduk.dki <- read.csv(""https://storage.googleapis.com/dqlab-dataset/dkikepadatankelurahan2013.csv"", sep="","")"
+"0","# Masukkan data ke dalam plot dan simpan sebagai variable plot.dki, dan tampilkan summary dari plot tersebut"
+"0","plot.dki <- ggplot(data=penduduk.dki)"
+"0","summary(plot.dki)"
+"1","data: TAHUN, NAMA.PROVINSI, NAMA.KABUPATEN.KOTA, NAMA.KECAMATAN,
+  NAMA.KELURAHAN, LUAS.WILAYAH..KM2., KEPADATAN..JIWA.KM2., X, X.1, X.2,
+  X.3, X.4, X.5, X.6, X.7, X.8, X.9, X.10, X.11, X35.39.Laki.Laki,
+  X35.39.Perempuan, X40.44.Laki.Laki, X40.44.Perempuan, X45.49.Laki.Laki,
+  X45.49.Perempuan, X50.54.Laki.Laki, X50.54.Perempuan, X55.59.Laki.Laki,
+  X55.59.Perempuan, X60.64.Laki.Laki, X60.64.Perempuan, X65.69.Laki.Laki,
+  X65.69.Perempuan, X70.74.Laki.Laki, X70.74.Perempuan, X.75.Laki.Laki,
+  X.75..Perempuan [267x37]
+"
+"1","faceting: "
+"1","<ggproto object: Class FacetNull, Facet, gg>
+    compute_layout: function
+    draw_back: function
+    draw_front: function
+    draw_labels: function
+    draw_panels: function
+    finish_data: function
+    init_scales: function
+    map_data: function
+    params: list
+    setup_data: function
+    setup_params: function
+    shrink: TRUE
+    train_scales: function
+    vars: function
+    super:  <ggproto object: Class FacetNull, Facet, gg>"
+"1",""
+"1","
+"
